@@ -22,6 +22,9 @@ nav {
   background: #25b6d3;
   width: 66%;
   visibility: hidden;
+  transform: translateX(50%);
+  opacity: 0;
+  transition: all 0.3s;
 }
 
 a.logo {
@@ -72,6 +75,12 @@ li a:hover {
   margin-left: 0.2em;
 }
 
+.open-nav {
+  visibility: unset;
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* Media Queries */
 @media (min-width: 500px) {
   .open,
@@ -81,12 +90,17 @@ li a:hover {
   nav {
     visibility: unset;
     background: none;
+    position: unset;
+    height: auto;
+    opacity: 1;
+    transform: translateX(0);
   }
   ul {
     display: flex;
-    margin: 0;
+    margin-top: auto;
     justify-content: flex-end;
     align-items: center;
+    margin: 0;
   }
   .active a {
     font-weight: bold;
@@ -98,5 +112,62 @@ li a:hover {
   li a {
     display: block;
     padding: 1em;
+  }
+
+  .submenu {
+    /* display: flex;
+  flex-direction: column;
+  align-items: flex-start; */
+    padding: 0 1em;
+    /* margin-top: 0; */
+  }
+
+  .submenu p {
+    margin: 1em 0 1em 1em;
+    color: #132331;
+    line-height: 1.4em;
+  }
+  .submenu ul {
+    margin: 1em 0 1em;
+  }
+
+  .submenu a {
+    font-weight: normal;
+    color: #bac9d4;
+    background: none;
+    font-weight: bold;
+  }
+
+  .submenu a:hover {
+    background: none;
+  }
+  li a {
+    font-weight: bold;
+    background: #0d373f25;
+    margin-bottom: 2px;
+  }
+
+  /* New CSS Added */
+
+  header {
+    overflow: visible;
+  }
+
+  .sub {
+    position: relative;
+  }
+
+  .submenu {
+    display: none;
+  }
+
+  .sub:hover .submenu {
+    display: flex;
+    position: absolute;
+    top: 3.3em;
+    right: 0;
+    background: white;
+    padding: 1em 2em;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.07);
   }
 }
